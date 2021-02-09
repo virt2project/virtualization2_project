@@ -31,10 +31,13 @@ async def backend_client():
 		vz1 =0
 		vz2 =0
 		vz3 =0
+		h =1
 		e =1e-9
-
+		s =0.9
+		timestamp= 42.42
 
 		data = {
+			"Id": timestamp,
 			"b1": {
 				"position": [x1,y1,z1],
 				"velocity": [vx1,vy1,vz1],
@@ -51,12 +54,14 @@ async def backend_client():
 				"mass": m3
 				},
 			"time": [t1,t2],
-			"epsilon":e
+			"epsilon":e,
+			"h":h,
+			"s":s
 		}
 
-
+		
 		data=json.dumps(data)
-		print(data)
+		
 		await websocket.send(data)
 
 
