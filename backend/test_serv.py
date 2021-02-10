@@ -10,7 +10,7 @@ async def save_to_db(data):
 	post=connect_db.cursor()
 	try:
 		post.execute('''CREATE TABLE IF NOT EXISTS Input(
-		Id integer primary key,
+		Id Float,
 		t1 int,
 		t2 int,
 		m1 float,
@@ -56,10 +56,10 @@ async def save_to_db(data):
 	print(data)
 
 
-	data_tuple=(t1,t2,m1,m2,m3,x1,x2,x3,y1,y2,y3,z1,z2,z3,vx1,vx2,vx3,vy1,vy2,vy3,vz1,vz2,vz3,h,e,s)
+	data_tuple=(Id,t1,t2,m1,m2,m3,x1,x2,x3,y1,y2,y3,z1,z2,z3,vx1,vx2,vx3,vy1,vy2,vy3,vz1,vz2,vz3,h,e,s)
 
 	try:
-		post.execute('''INSERT INTO Input(t1,t2,m1,m2,m3,x1,x2,x3,y1,y2,y3,z1,z2,z3,vx1,vx2,vx3,vy1,vy2,vy3,vz1,vz2,vz3,h,e,s) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)''',data_tuple)
+		post.execute('''INSERT INTO Input(Id,t1,t2,m1,m2,m3,x1,x2,x3,y1,y2,y3,z1,z2,z3,vx1,vx2,vx3,vy1,vy2,vy3,vz1,vz2,vz3,h,e,s) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)''',data_tuple)
 	except Exception as E:
 		print('Error : ', E)
 	else:
