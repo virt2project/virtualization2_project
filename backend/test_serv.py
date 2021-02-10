@@ -64,10 +64,10 @@ async def backend_service(websocket, path):
 	#print(data)
 	await save_to_db(data)
 	await asyncio.sleep(1/60)
-
+	
 						
 
-    #await websocket.send(json.dumps(data))
+	await websocket.send(json.dumps(data))
 
 
 start_server = websockets.serve(backend_service, "0.0.0.0", 8001)

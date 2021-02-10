@@ -3,7 +3,7 @@ import websockets
 import json
 
 async def backend_client():
-	uri = "ws://localhost:8001"
+	uri = "ws://0.0.0.0:8001"
 	async with websockets.connect(uri) as websocket:	
 
 		#Initializing a dummy data structure of spected request
@@ -63,6 +63,9 @@ async def backend_client():
 		data=json.dumps(data)
 		
 		await websocket.send(data)
+		
+		initial = await websocket.recv()
+		print(initial)
 
 
 asyncio.get_event_loop().run_until_complete(backend_client())
