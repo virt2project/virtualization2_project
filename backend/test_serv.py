@@ -70,7 +70,6 @@ async def backend_service(websocket, path):
     #await websocket.send(json.dumps(data))
 
 
-
-start_server = websockets.serve(backend_service, "localhost", 8001)
+start_server = websockets.serve(backend_service, "0.0.0.0", 8001)
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
