@@ -10,7 +10,7 @@ async def save_to_db(data):
 	post=connect_db.cursor()
 	try:
 		post.execute('''CREATE TABLE IF NOT EXISTS Input(
-		Id Float,
+		Id Float Primary key,
 		t1 int,
 		t2 int,
 		m1 float,
