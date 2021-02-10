@@ -10,33 +10,15 @@ async def save_to_db(data):
 	post=connect_db.cursor()
 	try:
 		post.execute('''CREATE TABLE IF NOT EXISTS Input(
-		Id Float Primary key,
-		t1 int,
-		t2 int,
-		m1 float,
-		m2 float,
-		m3 float,
-		x1 double precision,
-		x2 double precision,
-		x3 double precision,
-		y1 double precision,
-		y2 double precision,
-		y3 double precision,
-		z1 double precision,
-		z2 double precision,
-		z3 double precision,
-		vx1 double precision,
-		vx2 double precision,
-		vx3 double precision,
-		vy1 double precision,
-		vy2 double precision,
-		vy3 double precision,
-		vz1 double precision,
-		vz2 double precision,
-		vz3 double precision,
-		h double precision,
-		e double precision,
-		s double precision
+		Id Float Primary key,		t1 int,		t2 int,
+		m1 float,		m2 float,		m3 float,
+		x1 double precision,		x2 double precision,		x3 double precision,
+		y1 double precision,		y2 double precision,		y3 double precision,
+		z1 double precision,		z2 double precision,		z3 double precision,
+		vx1 double precision,		vx2 double precision,		vx3 double precision,
+		vy1 double precision,		vy2 double precision,		vy3 double precision,
+		vz1 double precision,		vz2 double precision,		vz3 double precision,
+		h double precision,		e double precision,		s double precision
 	)''')
 	except sqlite3.OperationalError as e:
 		print('sqlite error:', e.args[0])  # table already exists
